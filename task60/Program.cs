@@ -8,13 +8,15 @@
 
 void InputMatrix(int[,,] matrix)
 {
-    for(int i = 0; i < matrix.GetLength(0); i++)
+    int count = 10;
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for(int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for(int k = 0; k < matrix.GetLength(2); k++)
+            for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                matrix[i,j,k] = new Random().Next(1,10); // 1 - 9
+                matrix[k, i, j] += count;
+                count += 3;
             }
         }
     }
@@ -22,17 +24,17 @@ void InputMatrix(int[,,] matrix)
 
 void PrintMatrix(int[,,] matrix)
 {
-    for(int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for(int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for(int k = 0; k < matrix.GetLength(2); k++)
+            Console.WriteLine();
+            for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                Console.Write($"{matrix[i,j,k]}\t");
-                
+                Console.Write($"{matrix[i, j, k]}({i},{j},{k}) ");
             }
-         }Console.WriteLine();
-    }Console.WriteLine();
+        }
+    }
 }
 
 
